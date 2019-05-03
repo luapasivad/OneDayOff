@@ -93,15 +93,6 @@ resultsDiv.on('click', '#save', function () {
     console.log(currentDayArr)
 
 
-    if ($(window).width() < 760) {
-        $('#sidebar').toggle('slow', 'swing', function () {
-            setTimeout(function () {
-                $('#sidebar').toggle('slow', 'swing')
-            }, 1000)
-        })
-    }
-
-
     $('<div>')
         .attr('id', 'selected-' + selected.id)
         .attr('class', 'mt-2 ml-3')

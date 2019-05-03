@@ -1,24 +1,34 @@
-//on click
-if ($(window).width() < 760) {
-    $('#sidebar').toggle('slow', 'swing', function () {
-        setTimeout(function () {
-            $('#sidebar').toggle('slow', 'swing')
-        }, 1000)
-    })
-}
+// //on click
+// if ($(window).width() < 760) {
+//     $('#sidebar').toggle('slow', 'swing', function () {
+//         setTimeout(function () {
+//             $('#sidebar').toggle('slow', 'swing')
+//         }, 1000)
+//     })
+// }
 
 
 
+$(window).resize(function() {
+        //on click
+    if ($(window).width() < 760) {
+        resultsDiv.one('click', '#save', function () {
+            console.log('size')
+            $('#sidebar').toggle('slow', 'swing', function () {
+                setTimeout(function () {
+                    $('#sidebar').toggle('slow', 'swing')
+                }, 2000)
+            })
+        })
+    }
+})
 
-// window.resize(function () {
-//     if ($(window).width() < 760) {
-//         console.log('working')
-//     } else {
-//         // otherwise remove it
-//         obj.removeClass('fixed');
+    // } else {
+    //     // // otherwise remove it
+    //     // obj.removeClass('fixed');
 
-//     }
-// })
+    // }
+
 
 
 function stickTop() {
