@@ -34,11 +34,22 @@
       currentDayArr = [], // temp storage for creating dayPlan
       favObject = {} // object made for each response from YELP api
 
+
+  
+  $('#searchCityBtn').on('click', e=> {
+    event.preventDefault()
+    location.href= "search-build.html"
+    searchTerm = 'food'
+    city = locationTxt.val(); // text box
+    $(window).load(function(){search(city, searchTerm, howMuch, sorting)})
+  })
+
   searchBtn.on('click', function () {
-      page = 0
-      searchTerm = searchTxt.val(); // text box
-      city = locationTxt.val(); // text box
-      search(city, searchTerm, howMuch, sorting) // function    
+    event.preventDefault()
+    page = 0
+    searchTerm = searchTxt.val(); // text box
+    // city = locationTxt.val(); // text box
+    search(city, searchTerm, howMuch, sorting) // function    
   })
 
   dropdownCatagories.on('click', 'a', function () {
@@ -480,7 +491,7 @@
 $('#nav').on('click', '#btnLoginModal', e => {
     $('#logInModal').modal('show')
   })
-
+  
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser)

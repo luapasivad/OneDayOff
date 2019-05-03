@@ -26,10 +26,12 @@
 
     
     let where = 'la'
-    let plansForThisCity = []
 
     function searchByCity(where) {
+        let plansForThisCity = []
+
         db.collection('plans').get().then( snapshot => {
+
             snapshot.docs.forEach( doc => {
                 let obj = doc.data()
                 let city = obj.plan[2].location
