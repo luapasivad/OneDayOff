@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(user => {
                     console.log(plan)
 
                     $('<div>')
-                        .attr('class', 'card d-inline-block m-2 float-left self-made-card')
+                        .attr('class', 'card m-2 d-inline-block float-left self-made-card')
                         .attr('style', 'width: 130px; height: 250px;')
                         .attr('id', find.key)
                         .appendTo($('#yourDaysOff'))
