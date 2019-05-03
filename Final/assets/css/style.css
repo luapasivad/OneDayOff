@@ -113,6 +113,10 @@ body{
     margin-left: 5px;
 }
 
+#locationTxt {
+    margin-top: 0;
+}
+
 #selected{
     border-style: solid;
     border-width: 2px;
@@ -171,7 +175,7 @@ body{
 
 }
 
-#personOne, #personTwo, #personThree, #personFour {
+/* #personOne, #personTwo, #personThree, #personFour {
            
 }
 #headingOne, #headingTwo, #headingThree, #headingFour {
@@ -181,7 +185,7 @@ body{
 }
 button[data-toggle="collapse"] {
     color: white;
-}
+} */
 
 #loginModal {
     position: relative;
@@ -208,7 +212,7 @@ button[data-toggle="collapse"] {
 }
 
 #carouselFull {
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   margin-top: 20px;
   
 }
@@ -263,9 +267,9 @@ button[data-toggle="dropdown"] {
     /* left:330% */
 }
 
-#formcard{
+/* #formcard{
    
-}
+} */
 
 .accordion{
     margin-top: 80px;
@@ -294,6 +298,74 @@ html, body {
   right: 0;
 }
 
+
+
+#openModal {
+    text-align: center;
+
+}
+
+#modalBottom {
+    background-color: skyblue;
+}
+
+#openModalText {
+    text-align: center;
+}
+
+#modalInner {
+    background-color: skyblue;
+}
+
+#modalImage {
+    position: relative;
+    left: 35%;
+
+}
+
+#stupidBox {
+    background-color: transparent;
+    height: 0;
+}
+
+#aboutUs {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+#menuNav {
+    font-size: 18px;
+
+}
+
+#loginMModal {
+    font-size: 18px;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.nav-wrapper .input-field input[type=search] {
+
+    padding-left: 4rem;
+    width: calc(100% - 4rem);
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-top: 150;
+}
+
+#searchPre, #searchYou {
+    /* margin-right: 75px;
+    margin-left: 280px; */
+    width: 25%;
+    margin: auto;
+
+}
+#homePage {
+    text-align: center
+}
+
 @media only screen and (max-width: 760px) { 
     #sidebar {
         width: 90%;
@@ -317,13 +389,8 @@ html, body {
     }
 
     .resultsContainer {
-        width: 158px;
         margin-right: 5%;
         margin-top: 5%;
+
     }
-
 }
-
-
-
-

@@ -1,4 +1,7 @@
+
+
 // Initialize Firebase
+
 var config = {
     apiKey: "AIzaSyBHLLHSID8XnKBEARSlZ2xsp9kHrNXjRgo",
     authDomain: "onedayoff-2291e.firebaseapp.com",
@@ -34,14 +37,13 @@ var locationTxt = $('#locationTxt'),
     currentDayArr = [], // temp storage for creating dayPlan
     favObject = {} // object made for each response from YELP api
 
-search(city, searchTerm, howMuch, sorting)
+search(sessionStorage["city"], searchTerm, howMuch, sorting)
 
-$('#searchCityBtn').on('click', e => {
+$('#searchYou').on('click', e => {
     event.preventDefault()
     location.href = "search-build.html"
     searchTerm = 'food'
     sessionStorage["city"] = locationTxt.val(); // text box
-    search(city, searchTerm, howMuch, sorting)
 })
 
 searchBtn.on('click', function () {
@@ -88,15 +90,6 @@ resultsDiv.on('click', '#save', function () {
     let selected = resultsArr[$(this).attr('data-index')]
     currentDayArr.push(selected)
     console.log(currentDayArr)
-
-
-    if ($(window).width() < 760) {
-        $('#sidebar').toggle('slow', 'swing', function () {
-            setTimeout(function () {
-                $('#sidebar').toggle('slow', 'swing')
-            }, 1000)
-        })
-    }
 
 
     $('<div>')
