@@ -124,7 +124,7 @@ body{
     color: #145374;
 }
 
-#map{
+/* #map{
     border-style: solid;
     border-width: 2px;
     border-color:#00334e;
@@ -133,7 +133,7 @@ body{
     min-height: 100px;
     font-size: 30px;
     color: #145374;
-}
+} */
 
 #saved{
     /* position:fixed; */
@@ -270,6 +270,28 @@ button[data-toggle="dropdown"] {
 .accordion{
     margin-top: 80px;
 }
+
+.resultsContainer {
+    float: left;
+}
+
+#map {
+  height: 200px;
+  width: 100%;
+  }
+  
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
 
 
 

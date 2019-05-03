@@ -480,7 +480,7 @@
 $('#nav').on('click', '#btnLoginModal', e => {
     $('#logInModal').modal('show')
   })
-
+  
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser)

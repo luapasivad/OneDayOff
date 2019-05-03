@@ -62,13 +62,64 @@
                                         <i class="fas fa-search h4 text-body"></i>
                                     </div>
 
+                                    
+
                                     <div class="col">
                                         <input class="form-control form-control-lg form-control-borderless" type="search"
                                             placeholder="Search topics or keywords">
                                     </div>
+
+                                    
                                     <div class="col-auto">
                                         <button class="btn btn-lg btn-success" type="submit" id="searchButton">Search</button>
                                     </div>
+
+                                    <div class="row mt-2" data-what="filterRow">
+                                            <div class="col-sm-2"></div>
+                                        
+                                            <div class="col-sm-8">
+                                        
+                                              <div class="dropdown d-inline">
+                                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
+                                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  Catagories
+                                                </button>
+                                                <div class="dropdown-menu" id="dropdown-catagories" aria-labelledby="dropdownMenuButton"></div>
+                                              </div>
+                                        
+                                              <div class="btn-group btn-group-toggle" id="price" data-toggle="buttons">
+                                                <label class="btn btn-secondary btn-sm" data-howMuch="1">
+                                                  <input type="radio" name="options" id="price1" autocomplete="off" checked>$
+                                                </label>
+                                                <label class="btn btn-secondary btn-sm" data-howMuch="2">
+                                                  <input type="radio" name="options" id="price2" autocomplete="off">$$
+                                                </label>
+                                                <label class="btn btn-secondary btn-sm" data-howMuch="3">
+                                                  <input type="radio" name="options" id="price3" autocomplete="off">$$$
+                                                </label>
+                                                <label class="btn btn-secondary btn-sm" data-howMuch="4">
+                                                  <input type="radio" name="options" id="price4" autocomplete="off">$$$$
+                                                </label>
+                                              </div>
+                                        
+                                        
+                                              <div class="dropdown d-inline" id="dropdown-SortBy">
+                                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
+                                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  Sort by..
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                  <a class="dropdown-item active" data-sortBy="best_match">Best Match</a>
+                                                  <a class="dropdown-item" data-sortBy="review_count">Review Count</a>
+                                                  <a class="dropdown-item" data-sortBy="rating">Highest Rated</a>
+                                                </div>
+                                              </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            </div>
                                 </div>
                             </form>
                         </div>
@@ -83,6 +134,8 @@
             <div id="searchResults">
 
                 <p>Search Results<p>
+
+                
             </div>
         </div>
 
