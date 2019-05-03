@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pull from db by city</title>
+</head>
+<body>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+    <script>
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBHLLHSID8XnKBEARSlZ2xsp9kHrNXjRgo",
+        authDomain: "onedayoff-2291e.firebaseapp.com",
+        databaseURL: "https://onedayoff-2291e.firebaseio.com",
+        projectId: "onedayoff-2291e",
+        storageBucket: "onedayoff-2291e.appspot.com",
+        messagingSenderId: "1096725822270"
+    };
+    firebase.initializeApp(config);
+    const db = firebase.firestore()
+
+    
+    let where = 'la'
+    let plansForThisCity = []
+
+    function searchByCity(where) {
+        db.collection('plans').get().then( snapshot => {
+            snapshot.docs.forEach( doc => {
+                let obj = doc.data()
+                let city = obj.plan[2].location
+                
+                if (city.toLowerCase() === where.toLowerCase()) {
+                    let newObj = {...obj.plan}
+                    plansForThisCity.push(newObj)
+                }
+            })
+        })
+
+        console.log(plansForThisCity)
+        return plansForThisCity
+    }   
+
+    searchByCity(where)
+        
+    </script>
+</body>
+</html>
