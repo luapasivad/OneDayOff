@@ -106,7 +106,7 @@ body{
     font-weight: bold;
 }
 
-#searchCityBtn{
+#searchBtn{
     background-color: #00334e;
     color: white;
     border-color: #00334e;
@@ -273,6 +273,8 @@ button[data-toggle="dropdown"] {
 
 .resultsContainer {
     float: left;
+    width: 100%;
+
 }
 
 #map {
@@ -292,6 +294,34 @@ html, body {
   right: 0;
 }
 
+@media only screen and (max-width: 760px) { 
+    #sidebar {
+        width: 90%;
+    }
+     .sidebar-responsive {
+        right: 0;
+        position: absolute;
+        background-color: white;
+        border-left: 3px darkblue solid;
+        border-top: 3px darkblue solid;
+        border-bottom: 3px darkblue solid;
+        height: 100vh;
+        padding: 5px;
+        display: none;
+    }
+
+    #map {
+        width: 90%;
+        margin: auto;
+        padding: auto;
+    }
+
+    .resultsContainer {
+        width: 158px;
+        margin-right: 5%;
+        margin-top: 5%;
+
+}
 
 
 
