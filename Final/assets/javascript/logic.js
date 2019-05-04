@@ -54,25 +54,47 @@ searchBtn.on('click', function () {
     search(city, searchTerm, howMuch, sorting) // function    
 })
 
+// search for premade plans
 $('#searchPre').on('click', () => {
-    sessionStorage['premadeCity'] = searchTxt.val()
-    let where = sessionStorage['premadeCity']
-    let plansForThisCity = []
+    sessionStorage['premadeCity'] = locationTxt.val()
+    location.href = 'premade.html'
+    //let plansForThisCity = []
 
-    // go into database and grab all plans from selected city
-    db.collection('plans').get().then( snapshot => {
-        snapshot.docs.forEach( doc => {
-            let obj = doc.data()
-            let city = obj.plan[2].location
+    // // go into database and grab all plans from selected city
+    // db.collection('plans').get().then( snapshot => {
+    //     snapshot.docs.forEach( doc => {
+    //         console.log(doc)
+    //         let obj = doc.data()
+    //         let city = obj.plan[2].location
             
-            if (city.toLowerCase() === where.toLowerCase()) {
-                let newObj = {...obj.plan}
-                plansForThisCity.push(newObj)
-            }
-        })
-    })
+    //         if (city.toLowerCase() === where.toLowerCase()) {
+    //             let newObj = {...obj.plan}
+    //             plansForThisCity.push(newObj)
+    //         }
+    //     })
+    // })
 
-    console.log(plansForThisCity)
+    // console.log(plansForThisCity)
+
+
+    // location.href = 'premade.html'
+    // // add to premade plans page
+    // let column = $('<div>')
+    //                 .attr('class', 'col-sm-6').
+    //                 appendTo('#premadeDiv')
+    // let card = $('<div>').
+    //                 attr('class', 'card pre-made-card')
+    //                 .appendTo(column)
+    // let img = $('<img>')
+    //                 .attr('src', '#')
+    //                 .attr('class', 'card-img-top day-off-image')
+    //                 .appendTo(card)
+    // let cardBody = $('<div>')
+    //                     .attr('class', 'card-body')
+    //                     .appendTo(card)
+    // let text = $('<p>')
+    //                 .attr('class', 'card-text')
+    //                 .text('hello').appendTo(card)
 })
 
 dropdownCatagories.on('click', 'a', function () {

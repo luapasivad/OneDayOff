@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
 
+        <!-- firebase -->
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
 
 </head>
 
@@ -20,7 +23,7 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" id="brand" href="#"> <p id="thisHead">OneDayOff </p></a>
+                    <a class="nav-link" id="brand" href="../../Final/home.html"> <p id="thisHead">OneDayOff </p></a>
                 </li>
                
             </ul>
@@ -173,7 +176,7 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row">
+                <div class="row" id="premadeDiv">
                     <div class="col-sm-6">
 
                         <div class="card pre-made-card">
@@ -182,25 +185,7 @@
                                 <p class="card-text">Day Off in NYC</p>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-sm-6">
-                        <div class="card pre-made-card">
-                            <img src="./cities/sanDiego.png" class="card-img-top day-off-image" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Day Off in San Diego</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-sm-6">
-
-                        <div class="card pre-made-card">
-                            <img src="./placeholderNYC.jpg" class="card-img-top day-off-image" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Day Off in NYC</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -209,8 +194,32 @@
 </div>
 
 
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="javascript/logic.js"></script>
+    <script src="assets/javascript/premade.js"></script>
+    <script>
+    //     // add to premade plans page
+    // let column = $('<div>')
+    //                 .attr('class', 'col-sm-6').
+    //                 appendTo('#premadeDiv')
+    // let card = $('<div>').
+    //                 attr('class', 'card pre-made-card')
+    //                 .appendTo(column)
+    // let img = $('<img>')
+    //                 .attr('src', '#')
+    //                 .attr('class', 'card-img-top day-off-image')
+    //                 .appendTo(card)
+    // let cardBody = $('<div>')
+    //                     .attr('class', 'card-body')
+    //                     .appendTo(card)
+    // let text = $('<p>')
+    //                 .attr('class', 'card-text')
+    //                 .text('hello')
+    // 
 
-
+    //sessionStorage['premadeCity'] = locationTxt.val()
+    
+    </script>
 </body>
 
 </html>
