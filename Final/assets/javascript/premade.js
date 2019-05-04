@@ -63,6 +63,7 @@ let image = '',
                                         .attr('class', 'card-text text-muted')
                                         .text('More info')
                                         .attr('id', 'more-info')
+                                        .attr('style', 'cursor:pointer;')
                                         .attr('data-key', key)
                                         .appendTo(card)
             }
@@ -70,33 +71,10 @@ let image = '',
     })
 
 
-    // $('#more-info').on('click', function() {
-    //     db.collection('plans').doc($(this).attr('data-key')).get().then(function(plans) { 
-    //         $.each(plans.data(), function(key, value){ 
-    //             let plan = value
-    //             $('#moreDetailModal').modal('show')
-    //             $('#planTitle').html(plan[0])
-    //             $('#planDesc').html(plan[1])
-    //             console.log(plan)
-                
-                
-    //             for(let i=2; i < value.length; i++) {
-    //             $('<div>')
-    //                 .attr('class', 'location')
-    //                 // .attr()
-    //                 .text(plan[i].name)
-    //                 .appendTo($('#moreDetailBody'))
-    //             $('<div>')
-    //                 .attr('class', 'address text-muted m-2')
-    //                 .html(plan[i].address)
-    //                 .appendTo($('#moreDetailBody'))
-    
-    //             }   
-    //         })
-    //     })
-    // })
-
+    // more info modal
     $(document).on('click', '#more-info', function() {
+        $('#moreDetailBody').empty()
+
         db.collection('plans').doc($(this).attr('data-key')).get().then(function(plans) { 
             $.each(plans.data(), function(key, value){ 
                 let plan = value
