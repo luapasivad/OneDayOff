@@ -22,6 +22,7 @@
         <!-- navbar content here  -->
     </nav>
 
+    <div class="container-fluid">
     <ul id="slide-out" class="sidenav">
         <li>
             <div class="user-view">
@@ -47,10 +48,7 @@
         <li><a href="#terms3" class=" modal-trigger"><i class="material-icons">Michael</i></a></li>
     </ul>
     <div class="container">
-        <a href="#" data-target="slide-out" class="sidenav-trigger" id="menuNav"><i class="material-icons">About
-                Us</i></a>
-        <a href="#terms3" class=" modal-trigger" id="loginMModal"><i class="material-icons">Login</i></a>
-
+        <a href="#" data-target="slide-out" class="sidenav-trigger" id="menuNav" style="float: left; color: #145374;">About Us</a>
 
 
 
@@ -167,7 +165,8 @@
 
 
         <div class="container">
-            <h3 id="homePage"> Your Day Awaits</h3>
+            <h3 id="homePage" style="font-weight: bolder">One day off?</h3>
+            <h5 id="homePage" style="font-style: italic">let's plan</h5>
             <div class="carousel carousel-slider" id="demo-carousel-auto" data-indicators="true">
                 <a class="carousel-item" href="#one!"><img src="./assets/cities/sanDiego.png"></a>
                 <a class="carousel-item" href="#two!"><img src="./assets/cities/dc.png"></a>
@@ -184,8 +183,7 @@
                 <div class="nav-wrapper">
                     <form>
                         <div class="input-field">
-                            <input id="locationTxt" type="search" required placeholder="Your Loaction Here">
-
+                            <input placeholder="Where are we going?" type="text" id="locationTxt">
                         </div>
                     </form>
                 </div>
@@ -193,8 +191,8 @@
 
             </div>
         </div>
-        <a class="waves-effect waves-indigo lighten-1 btn-large" id="searchYou">make yours</a>
-        <a class="waves-effect waves-teal btn-large btn indigo lighten-1" id="searchYou">browse others</a>
+        <a class="waves-effect waves-indigo indigo darken-3 btn-large" id="searchYou">make yours</a>
+        <a class="waves-effect waves-teal btn-large btn indigo darken-3" id="searchPre">browse others</a>
 
         <!-- JS code -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js">

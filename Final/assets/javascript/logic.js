@@ -39,11 +39,17 @@ var locationTxt = $('#locationTxt'),
 
 search(sessionStorage["city"], searchTerm, howMuch, sorting)
 
+
 $('#searchYou').on('click', e => {
     event.preventDefault()
-    location.href = "search-build.html"
-    searchTerm = 'food'
     sessionStorage["city"] = locationTxt.val(); // text box
+    location.href = "search-build.html"
+})
+
+// search for premade plans
+$('#searchPre').on('click', () => {
+    sessionStorage['premadeCity'] = locationTxt.val()
+    location.href = 'premade.html'
 })
 
 searchBtn.on('click', function () {
@@ -161,6 +167,7 @@ currentDayDiv.on('click', '#finalizeBtn', function () {
             db.collection('users').doc(email).collection('keys').add({ // save key to user
                 key: key
             })
+            setTimeout(function() {location.href = "profile.html"}, 2000)
         })
     } else {
         $('#logInModal').modal('show') // if not logged in, pull up login modal
@@ -202,6 +209,7 @@ function search(where, what, price, sort) {
 
     var queryurl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${what}&location=${where}&price=${price}&sort_by=${sort}&offset=${offset}`
     // dynamic URL ^^
+console.log(queryurl)
 
     $.ajax({ // call
         url: queryurl,
@@ -269,7 +277,7 @@ function search(where, what, price, sort) {
             // console.log(cats) //catagories test
 
             $('<div>') // container for each result
-                .attr('class', 'resultsContainer card p-2')
+                .attr('class', 'resultsContainer card p-2 mb-2')
                 .attr('id', businesses[i].id)
                 .appendTo(resultsDiv)
             $('<div>')
@@ -291,17 +299,20 @@ function search(where, what, price, sort) {
                 .appendTo('#row-' + businesses[i].id)
             $('<div>') // title
                 .attr('class', 'resultsText w-100')
+                .attr('style', 'font-size: 14px; font-weight: bolder; color: #00334E')
                 .attr('id', 'businessName')
                 .html(businesses[i].name) // text
                 .appendTo('#text-' + businesses[i].id)
             $('<div>')
                 .attr('class', 'w-100')
                 .attr('id', 'businessAddress')
+                .attr('style', 'font-size: 14px; font-style: italic; color: #00334E')
                 .html(businesses[i].location.address1 + ' <br>' + businesses[i].location.city + ', ' + businesses[i].location.state + ' ' + businesses[i].location.zip_code)
                 .appendTo('#text-' + businesses[i].id) // text
             $('<div>')
                 .attr('class', 'w-100')
                 .html(businesses[i].display_phone) // text
+                .attr('style', 'font-size: 14px; font-style: italic; color: #00334E')
                 .appendTo('#text-' + businesses[i].id)
             $('<button>reviews</button>')
                 .attr('class', 'btn btn-primary btn-sm mt-2 mb-2')
@@ -334,13 +345,13 @@ function search(where, what, price, sort) {
         }
         $('<button>')
             .html('Prev Page')
-            .attr('class', 'btn btn-primary w-50')
+            .attr('class', 'btn btn-primary w-50 mb-2')
             .attr('id', 'prev-btn')
             .wrap('<a href="#"></a>')
             .appendTo(resultsDiv)
         $('<button>')
             .html('Next Page')
-            .attr('class', 'btn btn-primary w-50')
+            .attr('class', 'btn btn-primary w-50 mb-2')
             .attr('id', 'next-btn')
             .wrap('<a href="#"></a>')
             .appendTo(resultsDiv)
@@ -510,13 +521,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         $('#logInModal').modal('hide')
         $('#btnLoginModal').remove()
         $('<button>')
-            .attr('class', 'btn btn-primary m-2')
+            .attr('class', 'btn btn-link m-2 font-weight-bold')
             .attr('id', 'btnProfile')
             .text('profile')
             .appendTo($('#navBtn'))
 
         $('<button>')
-            .attr('class', 'btn btn-primary')
+            .attr('class', 'btn btn-link font-weight-bold')
             .attr('id', 'btnLogOut')
             .text('logout')
             .appendTo($('#navBtn'))
@@ -526,11 +537,11 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         $('#btnLogOut').remove()
         $('#btnProfile').remove()
         $('<button>')
-            .attr('class', 'btn btn-primary')
+            .attr('class', 'btn btn-link font-weight-bold')
             .attr('id', 'btnLoginModal')
             .attr('data-toggle', 'modal')
             .attr('data-target', $('#logInModal'))
-            .text('login modal')
+            .text('login')
             .appendTo($('#navBtn'))
 
     }

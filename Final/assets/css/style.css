@@ -1,11 +1,11 @@
 *::after,
 *::before {
-    box-sizing: border-box
+    box-sizing: content-box!important;
 }
 
 
 body{
-   
+    background-color: #F9DC5C!important;
     color: #145374;
 }
 
@@ -128,16 +128,9 @@ body{
     color: #145374;
 }
 
-/* #map{
-    border-style: solid;
-    border-width: 2px;
-    border-color:#00334e;
-    margin-left: 20px;
-    margin-right: 20px;
-    min-height: 100px;
-    font-size: 30px;
-    color: #145374;
-} */
+#map{
+   border: 5px solid #00334E
+}
 
 #saved{
     /* position:fixed; */
@@ -175,18 +168,6 @@ body{
 
 }
 
-/* #personOne, #personTwo, #personThree, #personFour {
-           
-}
-#headingOne, #headingTwo, #headingThree, #headingFour {
-    background-color: #00334e;
-    color: white;
-    
-}
-button[data-toggle="collapse"] {
-    color: white;
-} */
-
 #loginModal {
     position: relative;
     float: right;
@@ -203,9 +184,6 @@ button[data-toggle="collapse"] {
     margin-left: 10px;
     margin-right: 10px;
 }
-
-
-
 
 #modalContain {
     margin-top: 12px;
@@ -362,9 +340,39 @@ html, body {
     margin: auto;
 
 }
+
 #homePage {
-    text-align: center
+    text-align: center;
+    color: #00334e;
 }
+
+#btnLoginModal, #btnLogOut, #btnProfile{
+    color: #00334e;
+}
+
+.btn-primary {
+    background-color: #00334e !important;
+    border-color: #00334e!important;
+}
+
+#menuNav {
+    padding-top: 10px;
+}
+
+.card {
+    border: solid 5px #00334e;
+}
+
+.filter{
+    display: none;
+}
+
+/* #aboutUs{
+    font-size: 12px;
+    margin-top: 10px;
+    float: left;
+} */
+
 
 @media only screen and (max-width: 760px) { 
     #sidebar {

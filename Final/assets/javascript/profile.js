@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(user => {
                     console.log(plan)
 
                     $('<div>')
-                        .attr('class', 'card m-2 d-inline-block float-left self-made-card')
+                        .attr('class', 'card ml-1 d-inline float-left self-made-card')
                         .attr('style', 'width: 130px; height: 250px;')
                         .attr('id', find.key)
                         .appendTo($('#yourDaysOff'))
@@ -64,12 +64,65 @@ firebase.auth().onAuthStateChanged(user => {
 
                         yourDaysOff.on('click', 'p', function() {
                             console.log('working')
-                            console.log($(this).attr('data-key'))                    
+                            console.log($(this).attr('data-key'))
+                            
+                            
+                
                         })
                     })
                 })
             })    
         })
+
+        console.log(user.email)
+
+        db.collection('users').doc(user.email).collection('favs').get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                let find = doc.data()
+                console.log(find.key)
+
+                db.collection('plans').doc(find.key).get().then(function(plans) {
+                    
+                    $.each(plans.data(), function(key, value){
+                    let plan = value
+                    console.log(plan)
+
+                    $('<div>')
+                        .attr('class', 'card ml-1 d-inline float-left self-made-card')
+                        .attr('style', 'width: 130px; height: 250px;')
+                        .attr('id', find.key)
+                        .appendTo($('#favDaysOff'))
+                    $('<img>')
+                        .attr('class', 'card-img-top img-fluid')
+                        .attr('style', "height: 130px; width: 150px;")
+                        .attr('src', plan[2].img)
+                        .appendTo($('#' + find.key))
+                    $('<div>')
+                        .attr('class', 'card-body')
+                        .attr('id', 'body-' + find.key)
+                        .appendTo($('#' + find.key))
+                    $('<h5>')
+                        .attr('class', 'card-title')
+                        .attr('style', "font-size: 16px;")
+                        .text(plan[0])
+                        .appendTo($('#body-' + find.key))
+                    $('<p>')
+                        .attr('class', 'card-text text-muted')
+                        .attr('style', "font-size: 12px;")
+                        .text('more info..')
+                        .attr('data-key', find.key)
+                        .appendTo($('#body-' + find.key))
+
+                        yourDaysOff.on('click', 'p', function() {
+                            console.log('working')
+                            console.log($(this).attr('data-key'))                                 
+                
+                        })
+                    })
+                })
+            })    
+        })
+        
     }else{
         console.log('not logged in')
     }
