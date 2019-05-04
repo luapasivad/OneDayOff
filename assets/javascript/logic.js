@@ -490,7 +490,7 @@ btnLogin.on('click', e => {
     const auth = firebase.auth();
     // sign in
     const promise = auth.signInWithEmailAndPassword(user, pass);
-    promise.catch(e => console.log(e.message))
+    promise.catch(e => $('.error').text(e.message))
 
 })
 // sign up

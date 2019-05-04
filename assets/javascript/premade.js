@@ -168,7 +168,7 @@ btnSignUp.on('click', e => {
     const auth = firebase.auth();
     // sign in
     const promise = auth.createUserWithEmailAndPassword(user, pass);
-    promise.catch(e => console.log(e.message))
+    promise.catch(e => $('.error').text(e.message))
 })
 //log out
 $('#nav').on('click', '#btnLogOut', e => {
