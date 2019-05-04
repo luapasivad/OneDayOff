@@ -23,8 +23,11 @@ let image = '',
         snapshot.docs.forEach( doc => {
             let obj = doc.data()
             let city = obj.plan[2].location
+
+            console.log('doc id: ' + doc.id)
             
             if (city.toLowerCase() === where.toLowerCase()) {
+                let key = doc.id
                 let newObj = {...obj.plan}
                 plansForThisCity.push(newObj)
 
@@ -36,13 +39,15 @@ let image = '',
 
                  // add to premade plans page
                 let column = $('<div>')
-                                .attr('class', 'col-sm-6').
+                                .attr('class', 'col-sm-3').
                                 appendTo('#premadeDiv')
                 let card = $('<div>').
                                 attr('class', 'card pre-made-card mb-3 mt-3')
+                                .attr('style', 'width: 200px')
                                 .appendTo(column)
                 let img = $('<img>')
                                 .attr('src', image)
+                                .attr('style', 'height: 200px; width: 200px')
                                 .attr('class', 'card-img-top day-off-image')
                                 .appendTo(card)
                 let cardBody = $('<div>')
@@ -54,7 +59,66 @@ let image = '',
                 let cardDescription = $('<p>')
                                 .attr('class', 'card-text ml-3 mb-3')
                                 .text(description).appendTo(card)
+                let cardMoreInfo = $('<p>')
+                                        .attr('class', 'card-text text-muted')
+                                        .text('More info')
+                                        .attr('id', 'more-info')
+                                        .attr('data-key', key)
+                                        .appendTo(card)
             }
+        })
+    })
+
+
+    // $('#more-info').on('click', function() {
+    //     db.collection('plans').doc($(this).attr('data-key')).get().then(function(plans) { 
+    //         $.each(plans.data(), function(key, value){ 
+    //             let plan = value
+    //             $('#moreDetailModal').modal('show')
+    //             $('#planTitle').html(plan[0])
+    //             $('#planDesc').html(plan[1])
+    //             console.log(plan)
+                
+                
+    //             for(let i=2; i < value.length; i++) {
+    //             $('<div>')
+    //                 .attr('class', 'location')
+    //                 // .attr()
+    //                 .text(plan[i].name)
+    //                 .appendTo($('#moreDetailBody'))
+    //             $('<div>')
+    //                 .attr('class', 'address text-muted m-2')
+    //                 .html(plan[i].address)
+    //                 .appendTo($('#moreDetailBody'))
+    
+    //             }   
+    //         })
+    //     })
+    // })
+
+    $(document).on('click', '#more-info', function() {
+        db.collection('plans').doc($(this).attr('data-key')).get().then(function(plans) { 
+            $.each(plans.data(), function(key, value){ 
+                let plan = value
+                $('#moreDetailModal').modal('show')
+                $('#planTitle').html(plan[0])
+                $('#planDesc').html(plan[1])
+                console.log(plan)
+                
+                
+                for(let i=2; i < value.length; i++) {
+                $('<div>')
+                    .attr('class', 'location')
+                    // .attr()
+                    .text(plan[i].name)
+                    .appendTo($('#moreDetailBody'))
+                $('<div>')
+                    .attr('class', 'address text-muted m-2')
+                    .html(plan[i].address)
+                    .appendTo($('#moreDetailBody'))
+    
+                }   
+            })
         })
     })
 
